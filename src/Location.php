@@ -21,6 +21,9 @@ class Location
     /** @var string Country of the location */
     private $country = '';
 
+    /** @var string Country code of the location */
+    private $country_code = '';
+
     /** @var string Locality of the location */
     private $locality = '';
 
@@ -87,8 +90,10 @@ class Location
                 $this->town = $component->long_name;
             } elseif (in_array('administrative_area_level_2', $component->types)) {
                 $this->country = $component->long_name;
+                $this->country_code = $component->short_name;
             } elseif (in_array('country', $component->types)) {
                 $this->country = $component->long_name;
+                $this->country_code = $component->short_name;
             } elseif (in_array('administrative_area_level_1', $component->types)) {
                 $this->district = $component->long_name;
             } elseif (in_array('postal_code', $component->types)) {
@@ -135,6 +140,15 @@ class Location
     public function getCountry($default = '')
     {
         return $this->country ?: $default;
+    }
+
+    /**
+     * Gets the country code of the location
+     * @return string
+     */
+    public function getCountryCode($default = '')
+    {
+        return $this->country_code ?: $default;
     }
 
     /**

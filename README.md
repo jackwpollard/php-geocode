@@ -59,6 +59,7 @@ $location->getAddress( 'default value' );
 $location->getLatitude(); // returns the latitude of the address
 $location->getLongitude(); // returns the longitude of the address
 $location->getCountry(); // returns the country of the address
+$location->getCountryCode(); // returns the ISO 3166-1 alpha-2 country code of the address
 $location->getLocality(); // returns the locality/city of the address
 $location->getDistrict(); // returns the district of the address
 $location->getPostcode(); // returns the postal code of the address
